@@ -2,6 +2,7 @@ import React, { useEffect, useState, } from 'react';
 import { Link } from 'react-router-dom';
 import { ITire } from '../../interfaces/ITire';
 import { loadAllTires } from '../../dbRequests/tiresRequests';
+import './AllTires.css'
 
 const AllTires: React.FC = () => {
   const [tires, setTires] = useState<ITire[]>([]);

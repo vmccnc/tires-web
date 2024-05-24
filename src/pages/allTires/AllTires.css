@@ -1,0 +1,14 @@
+.tire-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.tire-item {
+    width: 350px;
+    height: 350px;
+    margin-bottom: 30px;
+    border: solid 1px;
+    border-color: rgb(71, 71, 71); 
+    overflow: hidden;
+}
