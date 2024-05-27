@@ -34,7 +34,10 @@ const AllTires: React.FC = () => {
             <h2>{tire.typeOfTire}</h2>
             <p>IcVC: {tire.icVc}</p>
             <p>Diameter: {tire.diameter}</p>
-            <p>Dimension: {tire.dimension}</p>
+            <p>Width: {tire.width}</p>
+            <p>Profile: {tire.profile}</p>
+            <p>Manufacturer: {tire.manufacturer}</p>
+            <p>Season: {tire.season}</p>
             <Link to={`/tire/${tire.url}`}>View Details</Link>
             <p>Urls: {tire.urls}</p>
             <p>Info: {tire.inf}</p>

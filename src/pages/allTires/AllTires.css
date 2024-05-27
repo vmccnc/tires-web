@@ -11,4 +11,6 @@
     border: solid 1px;
     border-color: rgb(71, 71, 71); 
     overflow: hidden;
+    text-align: left;
+    padding: 30px;
 }
