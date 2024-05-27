@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { filterTires } from '../dbRequests/tiresRequests';
 import { ITire } from '../interfaces/ITire';
-import { loadAllTires } from '../dbRequests/tiresRequests';
 
-const AllTires: React.FC = () => {
+export function FilterTiresList() {
+  const { width, profile, diametr } = useParams();
   const [tires, setTires] = useState<ITire[]>([]);
-
-  console.log('AllTires component rendered');
-  console.log('Tires state:', tires);
+  console.log(width, profile, diametr);
 
   useEffect(() => {
-    const fetchTires = async () => {
+    const fetchfilterTires = async () => {
       try {
-        const data = await loadAllTires();
+        const data = await filterTires({ width, profile, diametr });
         console.log('Fetched tires data:', data);
         setTires(data);
       } catch (error) {
@@ -20,12 +19,12 @@ const AllTires: React.FC = () => {
       }
     };
 
-    fetchTires();
+    fetchfilterTires();
   }, []);
 
   return (
     <div>
-      <h1>All Tires</h1>
+      <h1>Filter Tires</h1>
       <div className="tire-list">
         {tires.length === 0 && <p>Loading tires...</p>}
         {tires.map(tire => (
@@ -42,6 +41,4 @@ const AllTires: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default AllTires;
+}
