@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ITire } from '../../interfaces/ITire';
-import { loadAllTires } from '../../dbRequests/tiresRequests';
-import './AllTires.css'
+import { useParams, Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { filterTires } from '../../../dbRequests/tiresRequests';
+import { ITire } from '../../../interfaces/ITire';
 
-const AllTires: React.FC = () => {
+export function FilterTiresList() {
+  const { width, profile, diametr } = useParams();
   const [tires, setTires] = useState<ITire[]>([]);
-
-  console.log('AllTires component rendered');
-  console.log('Tires state:', tires);
+  console.log(width, profile, diametr);
 
   useEffect(() => {
-    const fetchTires = async () => {
+    const fetchfilterTires = async () => {
       try {
-        const data = await loadAllTires();
+        const data = await filterTires({ width, profile, diametr });
         console.log('Fetched tires data:', data);
         setTires(data);
       } catch (error) {
@@ -21,12 +19,12 @@ const AllTires: React.FC = () => {
       }
     };
 
-    fetchTires();
+    fetchfilterTires();
   }, []);
 
   return (
     <div>
-      <h1>All Tires</h1>
+      <h1>Filter Tires</h1>
       <div className="tire-list">
         {tires.length === 0 && <p>Loading tires...</p>}
         {tires.map(tire => (
@@ -34,10 +32,7 @@ const AllTires: React.FC = () => {
             <h2>{tire.typeOfTire}</h2>
             <p>IcVC: {tire.icVc}</p>
             <p>Diameter: {tire.diameter}</p>
-            <p>Width: {tire.width}</p>
-            <p>Profile: {tire.profile}</p>
-            <p>Manufacturer: {tire.manufacturer}</p>
-            <p>Season: {tire.season}</p>
+            <p>Dimension: {tire.manufacturer}</p>
             <Link to={`/tire/${tire.url}`}>View Details</Link>
             <p>Urls: {tire.urls}</p>
             <p>Info: {tire.inf}</p>
@@ -46,6 +41,4 @@ const AllTires: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default AllTires;
+}

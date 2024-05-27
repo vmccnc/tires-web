@@ -10,7 +10,7 @@ function App() {
 
 
   return (
-    <div className='App'>
+    <div className="App">
       <BrowserRouter>
         <Content>
           <Routes>
@@ -23,7 +23,7 @@ function App() {
       </BrowserRouter>
 
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
