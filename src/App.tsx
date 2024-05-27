@@ -2,8 +2,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Content } from './Content';
 import AllTires from './pages/AllTires';
-import { FilterTires } from './pages/FilterTires';
-import { FilterTiresList } from './pages/FilterTiresList';
+import { FilterTires } from './pages/filterTires/FilterTires';
+import { FilterTiresList } from './pages/filterTires/componentsFilterTires/FilterTiresList';
 
 function App() {
   return (

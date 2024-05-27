@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { filterTires } from '../dbRequests/tiresRequests';
-import { ITire } from '../interfaces/ITire';
+import { filterTires } from '../../../dbRequests/tiresRequests';
+import { ITire } from '../../../interfaces/ITire';
 
 export function FilterTiresList() {
   const { width, profile, diametr } = useParams();
