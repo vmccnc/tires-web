@@ -1,5 +1,5 @@
 import { ITire } from "../interfaces/ITire";
-import { ICreateTireData } from "../interfaces/ITire";
+import { ICreateTireData } from "../pages/createTire/TireForm";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
