@@ -30,10 +30,13 @@ export async function createTire(tireData: ICreateTireData): Promise<ITire | str
   }
 }
 
-export async function filterTires({ width, profile, diametr }: any): Promise<ITire[]> {
-  const result = await fetch(`https://q11.jvmhost.net/tires/filter/${width}/${profile}/${diametr}`, {
-    method: 'GET',
-    redirect: 'follow',
+export async function filterTires({ width, profile, diameter }: any): Promise<ITire[]> {
+  const result = await fetch(`https://q11.jvmhost.net/api/tires/filter`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ width, profile, diameter }),
   });
   console.log(result);
   const data = await result.json();
