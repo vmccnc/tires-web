@@ -4,12 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import '../filterTires/FilterTires.css';
 import { tires, ITires } from './tires';
+import { ITire } from '../../interfaces/ITire';
+import { filterTires } from '../../dbRequests/tiresRequests';
 
 function FilterTires() {
   const [width, setWidth] = useState('205');
   const [profile, setProfile] = useState('55');
-  const [diametr, setDiametr] = useState('16');
+  const [diameter, setDiametr] = useState('16');
   const [checkManufacturer, setCheckManufacturer] = useState<ITires>(tires);
+  const [data, setData] = useState<ITire[]>([]);
 
   const [openManufacturer, setOpenManufacturer] = useState(false);
   const [openSeason, setOpenSeason] = useState(false);
@@ -57,7 +60,23 @@ function FilterTires() {
   // }
 
   function handleClickSearch() {
-    navigate(`/filter/${width} /${profile} /${diametr}`);
+    // navigate(`/filter/${width} /${profile} /${diametr}`);
+    const dataTires = {
+      width: Number(width),
+      profile: Number(profile),
+      diameter: Number(diameter),
+    };
+    const fetchfilterTires = async () => {
+      try {
+        const data = await filterTires({ width, profile, diameter });
+        console.log('Fetched tires data:', data);
+        setData(data);
+      } catch (error) {
+        console.error('Error fetching tires:', error);
+      }
+    };
+
+    fetchfilterTires();
   }
 
   function dropdownManufacturer() {
@@ -192,7 +211,26 @@ function FilterTires() {
       </div>
     );
   }
-
+  function renderTireList() {
+    return (
+      <div>
+        <div className="tire-list">
+          {/* {data.length === 0 && <p>Loading tires...</p>} */}
+          {data.map(tire => (
+            <div key={tire.id} className="tire-item">
+              <h2>{tire.typeOfTire}</h2>
+              <p>IcVC: {tire.icVc}</p>
+              <p>Diameter: {tire.diameter}</p>
+              <p>Dimension: {tire.manufacturer}</p>
+              {/* <Link to={`/tire/${tire.url}`}>View Details</Link> */}
+              <p>Urls: {tire.urls}</p>
+              <p>Info: {tire.inf}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="filter-tires">
       <div className="header-selector">
@@ -298,6 +336,7 @@ function FilterTires() {
           </div>
         </div>
       </div>
+      {data ? renderTireList() : <></>}
     </div>
   );
 }

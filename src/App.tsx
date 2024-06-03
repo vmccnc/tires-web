@@ -1,14 +1,12 @@
-import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Content } from './Content'
-import AllTires from './pages/allTires/AllTires'
-import CreateTire from './pages/createTire/CreateTire'
-import FilterTires from './pages/filterTires/FilterTires'
-import StartPage from './pages/startPage/StartPage'
+import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Content } from './Content';
+import AllTires from './pages/allTires/AllTires';
+import CreateTire from './pages/createTire/CreateTire';
+import FilterTires from './pages/filterTires/FilterTires';
+import StartPage from './pages/startPage/StartPage';
 
 function App() {
-
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -21,7 +19,6 @@ function App() {
           </Routes>
         </Content>
       </BrowserRouter>
-
     </div>
   );
 }
