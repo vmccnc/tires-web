@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import '../filterTires/FilterTires.css';
-import { tires, ITires } from './tires';
+import { tires } from './tires';
 import { ITire } from '../../interfaces/ITire';
 import { filterTires } from '../../dbRequests/tiresRequests';
 
@@ -11,13 +10,10 @@ function FilterTires() {
   const [width, setWidth] = useState('205');
   const [profile, setProfile] = useState('55');
   const [diameter, setDiametr] = useState('16');
-  const [checkManufacturer, setCheckManufacturer] = useState<ITires>(tires);
   const [data, setData] = useState<ITire[]>([]);
 
   const [openManufacturer, setOpenManufacturer] = useState(false);
   const [openSeason, setOpenSeason] = useState(false);
-
-  const navigate = useNavigate();
 
   function handleOpenManufacturer() {
     setOpenManufacturer(!openManufacturer);
@@ -61,11 +57,7 @@ function FilterTires() {
 
   function handleClickSearch() {
     // navigate(`/filter/${width} /${profile} /${diametr}`);
-    const dataTires = {
-      width: Number(width),
-      profile: Number(profile),
-      diameter: Number(diameter),
-    };
+    
     const fetchfilterTires = async () => {
       try {
         const data = await filterTires({ width, profile, diameter });
