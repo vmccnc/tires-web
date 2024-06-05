@@ -49,6 +49,7 @@ const AllTires: React.FC = () => {
                 <p>R{tire.diameter}</p>
               </div>
             </div>
+            
             <div className='tire-price'>
               <div className='price-with-discount'>
                 <p>12160 PLN</p>
