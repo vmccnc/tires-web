@@ -3,238 +3,194 @@
   padding: 0;
   box-sizing: border-box;
 }
-.filter-tires {
-  width: 100%;
-  height: 400px;
-}
-.header-selector {
-  width: 100%;
-  height: 85px;
-  background-color: #e1e1e1;
-}
-.header-selector ul {
-  width: 1040px;
-  height: 65px;
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 20px;
-  margin: auto;
-}
-.header-selector ul li {
-  background-color: #f4f4f4;
-  width: 320px;
-  height: 65px;
-  text-align: center;
-  line-height: 65px;
-  font-size: 20px;
-}
-
-/*  */
-
 .wrapper {
-  width: 1040px;
-  height: 185px;
-  margin: auto;
-  background-color: #f4f4f4;
+  width: 1320px;
+  height: 470px;
   display: flex;
-  padding: 22px 45px 0 35px;
-}
-.product-type {
-  width: 330px;
-  height: 165px;
-}
-.product-type p {
-  width: 330px;
-  height: 30px;
-  margin-bottom: 20px;
-  font-size: 26px;
-  line-height: 30px;
-  /* text-align: left; */
-}
-.wrapper-image {
-  width: 210px;
-  height: 113px;
-  background-image: url(/big-car-tire-summer.webp);
-  background-repeat: no-repeat;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d9d9d9;
+  border-radius: 10px;
   margin: auto;
-  background-size: cover;
 }
 .tab-content {
-  width: 585px;
-  height: 135px;
+  width: 1100px;
+  height: 370px;
   display: flex;
-  /* justify-content: space-between; */
-  flex-wrap: wrap;
-  padding: 7px 0 24px;
 }
-
+.wrapper-button {
+  width: 200px;
+  height: 30px;
+}
+.wrapper-button__tires {
+  width: 100px;
+  height: 100%;
+  border: 1px solid #f79c13;
+  border-radius: 5px 0 0 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.wrapper-button__wheels {
+  width: 100px;
+  height: 100%;
+  border: 1px solid #f79c13;
+  border-radius: 0 5px 5px 0;
+  background-color: #fff;
+  cursor: pointer;
+}
+.wrapper-image {
+  width: 200px;
+  height: 300px;
+  background-image: url(/tires-filter.jpg);
+  background-repeat: no-repeat;
+  margin: auto;
+  background-size: contain;
+  margin: 0 20px;
+}
+.tires,
+.wheels {
+  width: 430px;
+  height: 370px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
 .choose-profile,
 .choose-diametr {
-  width: 95px;
-  height: 60px;
-  display: flex;
-  flex-direction: column;
-  margin: 0 0 20px 10px;
+  width: 130px;
+  height: 55px;
+  margin: 0 0 25px 19px;
 }
 .choose-width {
-  width: 95px;
-  height: 60px;
+  width: 130px;
+  height: 55px;
+  margin-bottom: 25px;
+}
+.choose-price {
+  width: 430px;
+  height: 55px;
+  margin-bottom: 25px;
+  border: 1px solid #f79c13;
+  border-radius: 10px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  cursor: pointer;
+}
+.choose-price span {
+  font-size: 16px;
+  font-weight: 400;
+}
+.choose-price__wrapper {
+  width: 270px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.choose-price__wrapper input {
+  width: 120px;
+  height: 30px;
+  border: 0.5px solid #f79c13;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.choose-manufacturer {
+  width: 204px;
+  height: 55px;
+  border: 1px solid #f79c13;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 0 10px;
+  margin-bottom: 0 20px 20px 0;
+}
+.choose-season {
+  width: 204px;
+  height: 55px;
   margin-bottom: 20px;
 }
-.choose-season,
 .choose-manufacturer {
-  width: 130px;
-  height: 60px;
-  display: flex;
-  flex-direction: column;
-  margin: 0 0 20px 10px;
-}
-.choose-width .title,
-.choose-profile .title,
-.choose-diametr .title,
-.choose-season .title,
-.choose-manufacturer .title {
-  margin: 0 0 6px;
-  font-size: 16px;
-  text-align: left;
+  margin-right: 20px;
 }
 .choose-width select,
 .choose-profile select,
-.choose-diametr select {
-  width: 95px;
-  height: 35px;
-  font-size: 15px;
-  font-weight: 700;
+.choose-diametr select,
+.choose-season select {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #f79c13;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 400;
   cursor: pointer;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding-left: 12px;
+  padding-left: 10px;
+}
+.choose-width select option,
+.choose-profile select option,
+.choose-diametr select option,
+.choose-season select option {
+  border: 1px solid #f79c13;
 }
 .btn-wrapper {
-  width: 585px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  width: 425px;
 }
 .btn-wrapper button {
-  width: 300px;
-  padding: 14px 0;
-  font-size: 22px;
-  line-height: 28px;
+  width: 100%;
+  height: 55px;
+  font-size: 20px;
   text-align: center;
   font-weight: 700;
-  background: #0072ff;
-  border-radius: 6px;
-  box-shadow: 0 1px 5px rgb(0 0 0 / 16%);
+  background: #f79c13;
+  border-radius: 10px;
   color: #fff;
   border: none;
   cursor: pointer;
 }
 .btn-wrapper button:hover {
-  background: #015fd3;
+  background: #da870a;
 }
-/* dropdown */
+.btn-wrapper button:disabled {
+  background: #6a6a6a;
+}
 .dropdown {
-  height: 35px;
-  min-width: 50px;
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
   font-weight: 400;
   color: #000;
-  text-indent: 0;
   cursor: pointer;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: none;
-  background: #fff;
-  line-height: 35px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
-
 .dropdown span {
   display: block;
   width: 100px;
-  /* padding: 0 40px 0 10px; */
+  text-align: left;
+  font-weight: 400;
+  font-size: 16px;
 }
-.choose-season,
 .choose-manufacturer {
   position: relative;
-}
-.dropdown__season {
-  width: 320px;
-  height: 185px;
-  position: absolute;
-  background: #eee;
-  border-radius: 5px;
-  /* border: 2px solid red; */
-  margin: 70px 0;
-  right: 0;
-}
-
-.dropdown__season__menu {
-  width: 100%;
-  height: 120px;
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
-  padding: 16px 0 10px;
-}
-
-.dropdown__season__menu li {
-  width: 100%;
-  height: 30px;
-  cursor: pointer;
-  margin: 2px 15px;
-  border-radius: 4px;
-}
-
-.dropdown__season__menu li label {
-  display: flex;
-  font-weight: 700;
-  font-size: 16px;
-}
-.dropdown__season__menu li label p {
-  padding-left: 5px;
-}
-.dropdown__season__btn {
-  width: 320px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 15px 24px;
-}
-.dropdown__season__btn button {
-  width: 130px;
-  height: 30px;
-  background: #004395;
-  font-size: 16px;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  border: none;
-}
-.dropdown__season__btn button:hover {
-  background: #012d63;
 }
 .producers-group {
   width: 950px;
   height: 510px;
   position: absolute;
   background: #eee;
-  border-radius: 5px;
-  /* border: 2px solid red; */
+  border-radius: 10px;
+  border: 1px solid #f79c13;
   margin: 70px 0;
   padding: 30px 60px;
-  right: -140px;
+  top: 5px;
+  left: -5px;
 }
-
 .group-premium {
   width: 100%;
   height: 110px;
@@ -345,11 +301,20 @@
   font-weight: 700;
   border-radius: 4px;
   font-size: 14px;
-  background-color: #004395;
+  background: #f79c13;
   color: #fff;
   border: none;
   cursor: pointer;
 }
 .choose-manufacturer__btn button:hover {
-  background-color: #022f66;
+  background: #da870a;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  appearance: textfield;
+}
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  display: none;
 }
