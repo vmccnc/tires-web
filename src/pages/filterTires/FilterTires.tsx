@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import '../filterTires/FilterTires.css';
-import { tires, ITires } from './tires';
+import { tires } from './tires';
 import { ITire } from '../../interfaces/ITire';
 import { filterTires } from '../../dbRequests/tiresRequests';
 import CheckboxHeader from './componentsFilterTires/CheckboxHeader';
