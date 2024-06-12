@@ -5,6 +5,7 @@ import AllTires from './pages/allTires/AllTires';
 import CreateTire from './pages/createTire/CreateTire';
 import FilterTires from './pages/filterTires/FilterTires';
 import StartPage from './pages/startPage/StartPage';
+import NewsList from './pages/newsPage/allnews';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/all" element={<AllTires />} />
             <Route path="/create" element={<CreateTire />} />
             <Route path="/filter" element={<FilterTires />} />
+            <Route path="/allnews" element={<NewsList />} />
           </Routes>
         </Content>
       </BrowserRouter>

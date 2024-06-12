@@ -1,5 +1,6 @@
 import { ITire } from '../interfaces/ITire';
 import { ICreateTireData } from '../pages/createTire/TireForm';
+import { INews } from '../interfaces/INews';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -41,5 +42,15 @@ export async function filterTires(dataTires: any): Promise<ITire[]> {
   console.log(result);
   const data = await result.json();
   console.log(data);
+  return data;
+}
+
+
+export async function loadNews(): Promise<INews[]> {
+  const result = await fetch(`https://q11.jvmhost.net/api/tires/news`, {
+    method: 'GET',
+    redirect: 'follow',
+  });
+  const data = await result.json();
   return data;
 }
