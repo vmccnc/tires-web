@@ -249,10 +249,7 @@
   font-family: Inter;line-height: 19.36px;
 }
 
-.ll {
-  display: flex;
-  gap: 20px;
-}
+
 
 .review-container {
   display: flex;
@@ -282,15 +279,4 @@ text-align: left;
 
 }
 
-.like_img,.dislike_img{
-  width: 16px;
-  height: 16px;
-  margin-right: 5px;
-}
-.rating-container {
-  display: flex;
-  flex-direction: column;
-padding: 20px;
-  height: 100%;
-  justify-content: space-around;
-}
+

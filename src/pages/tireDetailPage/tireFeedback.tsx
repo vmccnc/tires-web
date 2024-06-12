@@ -1,16 +1,11 @@
 import React from "react";
 import Rating from "./ratingComponent/ratingComponent";
+import './tireFeedback.css'
+import { FeedbackProps} from '../../interfaces/DetailedTire'
 
-interface FeedbackProps {
-    user: string;
-    date: string;
-    text: string;
-    likes: number;
-    dislikes: number;
-  }  
 
   const Feedback: React.FC<FeedbackProps> = ({ user, date, text, likes, dislikes }) => (
-    <div className='ll'>
+    <div className='allRatingBlock'>
       <div className="feedback">
         <div className="feedback__ratings">
           <div className="feedback__user">{user}</div>
