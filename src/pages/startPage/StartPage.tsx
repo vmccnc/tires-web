@@ -7,6 +7,7 @@ const StartPage: React.FC = () => {
         <Link to="/all">See all</Link>
         <Link to="/create">Create tire</Link>
         <Link to="/filter">Select tire</Link>
+        <Link to="/cart">Cart</Link>
         </div>
     )
 }
