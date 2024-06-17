@@ -1,6 +1,7 @@
 import { ITire } from "../interfaces/ITire";
 import { ICreateTireData } from "../pages/createTire/TireForm";
 import { DetailedTire } from "../pages/tireDetailPage/tireDetailPage";
+import { INews } from '../interfaces/INews';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -57,5 +58,14 @@ export async function loadTireById(id: number): Promise<DetailedTire> {
     console.error(`Error fetching tire id ${id}:`, error);
     throw error;
   }
+}
+
+export async function loadNews(): Promise<INews[]> {
+  const result = await fetch(`https://q11.jvmhost.net/api/tires/news`, {
+    method: 'GET',
+    redirect: 'follow',
+  });
+  const data = await result.json();
+  return data;
 }
 

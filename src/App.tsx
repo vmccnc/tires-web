@@ -8,6 +8,7 @@ import StartPage from './pages/startPage/StartPage';
 import { SignInForm } from './pages/signInPage';
 import { RegistrationForm } from './pages/registrationPage';
 import { TireComponent } from './pages/tireDetailPage/tireDetailPage';
+import NewsList from './pages/newsPage/allnews';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/registration" element={<RegistrationForm />} />
             <Route path="/filter" element={<FilterTires />} />
             <Route path="/tireDetail" element={<TireComponent id={19} />} />
+            <Route path="/allnews" element={<NewsList />} />
           </Routes>
         </Content>
       </BrowserRouter>
