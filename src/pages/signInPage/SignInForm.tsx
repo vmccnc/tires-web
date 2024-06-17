@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { signIn } from '../../dbRequests/userRequests';
 import { IUser } from '../../interfaces/IUser';
+import style from './SignInForm.module.css'
 
 export function SignInForm() {
     const { login, setUser } = useContext(AuthContext);
@@ -29,31 +30,31 @@ export function SignInForm() {
     }
 
     return (
-        <div className="form-container signIn">
-            <h2 className="title">Sign In</h2>
+        <div className={style.form_container}>
+            <h2 className={style.title}>Sign In</h2>
             {errorMessage && <p>{errorMessage}</p>}
-            <form onSubmit={handleSignIn} className="form">
-                <label className="label">
+            <form onSubmit={handleSignIn} className={style.form}>
+                <label className={style.label}>
                     Email:
                     <input
-                        className="input"
+                        className={style.input}
                         type="email"
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </label>
-                <label className="label">
+                <label className={style.label}>
                     Password:
                     <input
-                        className="input"
+                        className={style.input}
                         type="password"
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </label>
-                <button className="button" type="submit">
+                <button className={style.button} type="submit">
                     Sign In
                 </button>
             </form>

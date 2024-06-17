@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { registerUser } from '../../dbRequests/userRequests';
 import { IUser } from '../../interfaces/IUser';
+import style from './RegistrationForm.module.css'
 
 export function RegistrationForm() {
     const [name, setName] = useState<string>("");
@@ -52,48 +53,48 @@ export function RegistrationForm() {
     };
 
     return (
-        <div className="form-container signUp">
-            <h2 className="title">Registration</h2>
+        <div className={style.form_container}>
+            <h2 className={style.title}>Registration</h2>
             {error && <p>{error}</p>}
             {loading ? <p>Loading...</p> : (
-                <form onSubmit={handleSubmit} className="form">
-                    <label className="label">
+                <form onSubmit={handleSubmit} className={style.form}>
+                    <label className={style.label}>
                         Name:
                         <input
                             placeholder="Name"
-                            className="input"
+                            className={style.input}
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                         />
                     </label>
 
-                    <label className="label">
+                    <label className={style.label}>
                         Surname:
                         <input
                             placeholder="Surname"
-                            className="input"
+                            className={style.input}
                             type="text"
                             value={lastName}
                             onChange={(e) => setLastName(e.target.value)}
                         />
                     </label>
 
-                    <label className="label">
+                    <label className={style.label}>
                         Password:
                         <input
                             placeholder="Password"
-                            className="input"
+                            className={style.input}
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </label>
 
-                    <label className="label">
+                    <label className={style.label}>
                         Email:
                         <input
-                            className="input"
+                            className={style.input}
                             type="email"
                             placeholder="Email"
                             value={email}
@@ -101,18 +102,18 @@ export function RegistrationForm() {
                         />
                     </label>
 
-                    <label className="label">
+                    <label className={style.label}>
                         Telephone:
                         <input
                             placeholder="Telephone"
-                            className="input"
+                            className={style.input}
                             type="tel"
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                         />
                     </label>
 
-                    <button className="button" type="submit">
+                    <button className={style.button} type="submit">
                         Register
                     </button>
                 </form>
