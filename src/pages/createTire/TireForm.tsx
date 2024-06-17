@@ -7,7 +7,6 @@ interface TireFormProps {
 }
 
 export interface ICreateTireData {
-    userId: string;
     typeOfTire: string;
     icVc: string;
     diameter: number;
@@ -24,7 +23,6 @@ export interface ICreateTireData {
 
 
 export const defaultTireData: ICreateTireData = {
-    userId: '357',
     typeOfTire: '',
     icVc: 'ICVC007',
     diameter: 17,
@@ -128,17 +126,6 @@ const TireForm: React.FC<TireFormProps> = ({ onSubmit }) => {
                                 onChange={handleChange} 
                             />
                         </div>
-                    </div>
-                    <div className="tire-form__group">
-                        <label className="tire-form__label">User ID:</label>
-                        {errors.userId && <div className="error-message">{errors.userId}</div>}
-                        <input 
-                            className={`tire-form__input ${errors.userId ? 'error' : ''}`} 
-                            type="text" 
-                            name="userId" 
-                            value={formData.userId} 
-                            onChange={handleChange} 
-                        />
                     </div>
                     <div className="tire-form__group">
                         <label className="tire-form__label">IC/VC:</label>
