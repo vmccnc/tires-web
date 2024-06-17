@@ -32,18 +32,34 @@ const AllTires: React.FC = () => {
         {tires.map(tire => (
           <div key={tire.id} className="tire-item">
             <div>
-              <h2>{tire.typeOfTire}</h2>
-              <p><img src={imageUrl} alt="tire" /></p>
+              <div className='tire-image'>
+                <div className='guaranty-frame'>
+                  <div className='guaranty-text'>1 year guaranty</div>
+                </div>
+                <img src={imageUrl} alt="tire" />
+                <div className='discount-frame'>
+                  <div className='discount-text'> - 5%</div>
+                </div>
+              </div>
+              <div className='tire-info'>
+                <p>{tire.manufacturer}</p>
+                <p>{tire.typeOfTire}</p>
+                <p>{tire.width}/</p>
+                <p>{tire.profile}</p>
+                <p>R{tire.diameter}</p>
+              </div>
             </div>
-            <div style={{marginLeft: "5px"}}>
-              <p>IcVC: {tire.icVc}</p>
-              <p>Diameter: {tire.diameter}</p>
-              <p>Width: {tire.width}</p>
-              <p>Profile: {tire.profile}</p>
-              <p>Manufacturer: {tire.manufacturer}</p>
-              <p>Season: {tire.season}</p>
-              <p>Info: {tire.inf}</p>
+            <div className='tire-price'>
+              <div className='price-with-discount'>
+                <p>12160 PLN</p>
+              </div>
+              <div className='price-before-discount'>
+                <p>12800 PLN</p>
+              </div>
             </div>
+            <button className='button-buy'>
+              <div className='button-by-text'>Buy</div>
+            </button>
           </div>
         ))}
       </div>

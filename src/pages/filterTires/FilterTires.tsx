@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import '../filterTires/FilterTires.css';
-import { tires, ITires } from './tires';
+import { tires } from './tires';
 import { ITire } from '../../interfaces/ITire';
 import { filterTires } from '../../dbRequests/tiresRequests';
 import CheckboxHeader from './componentsFilterTires/CheckboxHeader';
@@ -21,6 +21,7 @@ function FilterTires() {
   const [checkboxValue, setCheckboxValue] = useState<string[]>([]);
   const [data, setData] = useState<ITire[]>([]);
   const [openManufacturer, setOpenManufacturer] = useState(false);
+  const imageUrl = 'https://firebasestorage.googleapis.com/v0/b/tires-dm.appspot.com/o/Tires%2Fmichelin-primacy-4-23385-f-f-l130x175-sk6.webp?alt=media&token=e34a0787-2e67-40bb-a138-74dbd271c365';
 
   function handleOpenManufacturer() {
     setOpenManufacturer(!openManufacturer);
@@ -242,19 +243,40 @@ function FilterTires() {
   }
   function renderTireList() {
     return (
-      <div>
-        <div className="tire-list">
-          {data.map(tire => (
-            <div key={tire.id} className="tire-item">
-              <h2>{tire.typeOfTire}</h2>
-              <p>IcVC: {tire.icVc}</p>
-              <p>Diameter: {tire.diameter}</p>
-              <p>Dimension: {tire.manufacturer}</p>
-              <p>Urls: {tire.urls}</p>
-              <p>Info: {tire.inf}</p>
+      <div className="tire-list">
+        {data.map(tire => (
+          <div key={tire.id} className="tire-item">
+            <div>
+              <div className="tire-image">
+                <div className="guaranty-frame">
+                  <div className="guaranty-text">1 year guaranty</div>
+                </div>
+                <img src={imageUrl} alt="tire" />
+                <div className="discount-frame">
+                  <div className="discount-text"> - 5%</div>
+                </div>
+              </div>
+              <div className="tire-info">
+                <p>{tire.manufacturer}</p>
+                <p>{tire.typeOfTire}</p>
+                <p>{tire.width}/</p>
+                <p>{tire.profile}</p>
+                <p>R{tire.diameter}</p>
+              </div>
             </div>
-          ))}
-        </div>
+            <div className="tire-price">
+              <div className="price-with-discount">
+                <p>12160 PLN</p>
+              </div>
+              <div className="price-before-discount">
+                <p>12800 PLN</p>
+              </div>
+            </div>
+            <button className="button-buy">
+              <div className="button-by-text">Buy</div>
+            </button>
+          </div>
+        ))}
       </div>
     );
   }
