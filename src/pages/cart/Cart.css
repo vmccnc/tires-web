@@ -67,7 +67,9 @@
     border-radius: 10px;
     border-color: #F79C13;
     background-color: #FFFFFF;
-    color: #000; 
+    color: #000;
+    height: 35px;
+    width: 40px;
   }
   
   .cart-item-price {
