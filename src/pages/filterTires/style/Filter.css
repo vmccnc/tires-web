@@ -40,14 +40,19 @@
   background-color: #fff;
   cursor: pointer;
 }
+.wrapper-button__tires.active,
+.wrapper-button__wheels.active {
+  background-color: #f79c13;
+}
 .wrapper-image {
   width: 200px;
   height: 300px;
-  background-image: url(/tires-filter.jpg);
-  background-repeat: no-repeat;
-  margin: auto;
-  background-size: contain;
   margin: 0 20px;
+}
+.wrapper-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .tires,
 .wheels {
@@ -56,6 +61,10 @@
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
+}
+.tires.hidden,
+.wheels.hidden {
+  visibility: hidden;
 }
 .choose-profile,
 .choose-diametr {
@@ -138,10 +147,12 @@
 .choose-season select option {
   border: 1px solid #f79c13;
 }
-.btn-wrapper {
+.btn-wrapper,
+.wheels__btn-wrapper {
   width: 425px;
 }
-.btn-wrapper button {
+.btn-wrapper button,
+.wheels__btn-wrapper button {
   width: 100%;
   height: 55px;
   font-size: 20px;
@@ -153,10 +164,12 @@
   border: none;
   cursor: pointer;
 }
-.btn-wrapper button:hover {
+.btn-wrapper button:hover,
+.wheels__btn-wrapper button:hover {
   background: #da870a;
 }
-.btn-wrapper button:disabled {
+.btn-wrapper button:disabled,
+.wheels__btn-wrapper button:disabled {
   background: #6a6a6a;
 }
 .dropdown {
@@ -191,6 +204,7 @@
   padding: 30px 60px;
   top: 5px;
   left: -5px;
+  z-index: 1;
 }
 .group-premium {
   width: 100%;
@@ -320,15 +334,53 @@ input[type='number']::-webkit-inner-spin-button {
   display: none;
 }
 
-.tire-list {
-  width: 1320px;
-  margin: auto;
-  justify-content: flex-start;
+.wheels__choose-diametr {
+  width: 204px;
+  height: 55px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  margin: 0 20px 20px 0;
+}
+.wheels__bolt-spacing {
+  width: 204px;
+  height: 55px;
+  margin-bottom: 20px;
+}
+.wheels__choose-width {
+  width: 204px;
+  height: 55px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  margin: 0 20px 20px 0;
+}
+.wheels__choose-central-bore-diameter {
+  width: 204px;
+  height: 55px;
+  margin-bottom: 20px;
+}
+.wheels__choose-diametr select,
+.wheels__bolt-spacing select,
+.wheels__choose-width select,
+.wheels__choose-central-bore-diameter select {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #f79c13;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  padding-left: 10px;
 }
 
-.tire-item:not(:nth-child(5)) {
-  margin-left: 40px;
-}
-.tire-item:first-child {
-  margin-left: 0;
+.tires-list,
+.wheels-list {
+  width: 1320px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
