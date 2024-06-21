@@ -1,4 +1,4 @@
-import { createContext, useContext, ReactNode, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import { IUser } from '../interfaces/IUser';
 
 
@@ -32,7 +32,7 @@ interface AuthProviderProps {
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
     const [user, setUser] = useState<IUser | null>(null);
-    const [loading, setLoading] = useState<boolean>(false);
+    const [loading, ] = useState<boolean>(false);
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');

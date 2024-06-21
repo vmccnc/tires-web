@@ -4,7 +4,6 @@ import { Content } from './Content';
 import AllTires from './pages/allTires/AllTires';
 import CreateTire from './pages/createTire/CreateTire';
 import Filter from './pages/filterTires/Filter';
-import StartPage from './pages/startPage/StartPage';
 import { SignInForm } from './pages/signInPage';
 import { RegistrationForm } from './pages/registrationPage';
 import { TireComponent } from './pages/tireDetailPage/tireDetailPage';
