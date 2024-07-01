@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { loadAllTires } from '../../dbRequests/tiresRequests';
 import { ITire } from '../../interfaces/ITire';
 import './AllTires.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const AllTires: React.FC = () => {
   const [tires, setTires] = useState<ITire[]>([]);
   const imageUrl = "https://firebasestorage.googleapis.com/v0/b/tires-dm.appspot.com/o/Tires%2Fmichelin-primacy-4-23385-f-f-l130x175-sk6.webp?alt=media&token=e34a0787-2e67-40bb-a138-74dbd271c365";
-  const navigate = useNavigate();
 
   console.log('AllTires component rendered');
   console.log('Tires state:', tires);
