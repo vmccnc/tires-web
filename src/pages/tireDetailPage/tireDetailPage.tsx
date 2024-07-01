@@ -85,7 +85,7 @@ export const TireComponent: React.FC<TireComponentProps> = ({ id }) => {
       </div>
     </div>
     <div className='tireunder'>
-      <div className='tireright'>
+      <div className='tireleftBlock'>
       <div className="tire__specifications">
           <h3 className='tire__specification-title'>Характеристики</h3>
           <div className="tire__specification-item">
@@ -110,7 +110,7 @@ export const TireComponent: React.FC<TireComponentProps> = ({ id }) => {
           </div>
         </div>
       </div>
-      <div className='tireleft'>
+      <div className='tirerightBlock'>
         <div className='tirebox'>
         <img src={tire.url} alt={tire.typeOfTire} className="tire__thumbnail-box" />
         <h2 className='tire__name'>{tire.manufacturer} {tire.typeOfTire}</h2>
