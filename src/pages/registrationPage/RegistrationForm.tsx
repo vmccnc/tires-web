@@ -44,7 +44,7 @@ export function RegistrationForm() {
         try {
             const user: IUser = await registerUser(email, password);
             console.log("User successfully registered:", user);
-            navigate(`/all`);
+            navigate(`/cart`);
         } catch (error: any) {
             setError(error.message || "Registration failed. Please try again.");
             console.error("Error registering user:", error);
