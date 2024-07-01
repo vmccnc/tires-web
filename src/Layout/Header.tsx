@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 function Header() {
   const navigate = useNavigate();
-  const [admin, setAdmin] = useState(false);
+  const [admin, ] = useState(false);
 
   function handleClickCart(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
