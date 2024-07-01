@@ -225,7 +225,7 @@
   display: grid;
   grid-template-columns: repeat(3, 202px); 
   gap: 10px;
-  margin-left: 144px;
+  margin-left: 120px;
 }
 
 .tirebox {

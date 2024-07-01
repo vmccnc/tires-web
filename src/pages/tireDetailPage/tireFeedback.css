@@ -38,6 +38,7 @@
   
   .feedback__text {
     margin: 16px 0;
+    text-align: left;
   }
   
   .feedback__likes,
@@ -71,8 +72,8 @@
   
   .feedback__extra-star {
     display: flex;
-    align-items: left;
     height: 100%;
+    align-items: flex-end;
   }
   
   .feedback__one-star {
