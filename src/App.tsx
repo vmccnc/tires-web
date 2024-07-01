@@ -9,26 +9,27 @@ import { RegistrationForm } from './pages/registrationPage';
 import { TireComponent } from './pages/tireDetailPage/tireDetailPage';
 import NewsList from './pages/newsPage/allnews';
 import Cart from './pages/cart/Cart';
-import Header from './common/Header';
+import Layout from './Layout/Layout';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Header />
-        <Content>
-          <Routes>
-            <Route path="/" element={<Filter />} />
-            <Route path="/all" element={<AllTires />} />
-            <Route path="/create" element={<CreateTire />} />
-            <Route path="/signIn" element={<SignInForm />} />
-            <Route path="/registration" element={<RegistrationForm />} />
-            <Route path="/filter" element={<Filter />} />
-            <Route path="/tireDetail" element={<TireComponent id={19} />} />
-            <Route path="/allnews" element={<NewsList />} />
-            <Route path="/cart" element={<Cart />} />
-          </Routes>
-        </Content>
+        <Layout>
+          <Content>
+            <Routes>
+              <Route path="/" element={<Filter />} />
+              <Route path="/all" element={<AllTires />} />
+              <Route path="/create" element={<CreateTire />} />
+              <Route path="/signIn" element={<SignInForm />} />
+              <Route path="/registration" element={<RegistrationForm />} />
+              <Route path="/filter" element={<Filter />} />
+              <Route path="/tireDetail" element={<TireComponent id={19} />} />
+              <Route path="/allnews" element={<NewsList />} />
+              <Route path="/cart" element={<Cart />} />
+            </Routes>
+          </Content>
+        </Layout>
       </BrowserRouter>
     </div>
   );
