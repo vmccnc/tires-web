@@ -6,7 +6,7 @@ import { IUser } from '../../interfaces/IUser';
 import style from './SignInForm.module.css'
 
 export function SignInForm() {
-    const { login, setUser } = useContext(AuthContext);
+    const {login, setUser } = useContext(AuthContext);
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -16,10 +16,13 @@ export function SignInForm() {
         e.preventDefault();
         try {
             const user: IUser = await signIn(email, password);
-            login(user, "user");
-            setUser(user);
+            if (user) {
+                login(user);
+                setUser(user);
+                console.log(user)
+            }
             localStorage.setItem('user', JSON.stringify(user));
-            navigate(`/all`);  
+            navigate(`/cart`);  
         } catch (error) {
             if (error instanceof Error) {
                 setErrorMessage(error.message || "Failed to sign in");
@@ -28,6 +31,7 @@ export function SignInForm() {
             }
         }
     }
+
 
     return (
         <div className={style.form_container}>

@@ -1,13 +1,12 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { IUser } from '../interfaces/IUser';
 
-
 interface AuthContextType {
     isAuthenticated: boolean;
     setIsAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;
     user: IUser | null;
     setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
-    login: (emai: IUser, token: string) => void;
+    login: (userData: IUser) => void;
     logout: () => void;
     loading: boolean;
 }
@@ -22,7 +21,6 @@ export const AuthContext = createContext<AuthContextType>({
     loading: false,
 });
 
-
 export const useAuth = () => useContext(AuthContext);
 
 interface AuthProviderProps {
@@ -32,7 +30,7 @@ interface AuthProviderProps {
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
     const [user, setUser] = useState<IUser | null>(null);
-    const [loading, ] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
