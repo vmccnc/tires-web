@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { INews } from '../../interfaces/INews';
 import { loadNews } from '../../dbRequests/tiresRequests';
+import './allnews.css';
 
 const NewsList: React.FC = () => {
   const [news, setNews] = useState<INews[]>([]);
@@ -22,25 +23,36 @@ const NewsList: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="news-list__loading">Loading...</div>;
   }
 
   return (
-    <div>
-      <h1>Latest News</h1>
+    <div className="news-list">
+      <h1 className="news-list__title">Latest News</h1>
       {news.length > 0 ? (
-        <ul>
+        <ul className="news-list__items">
           {news.map((item) => (
-            <li key={item.id}>
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
-              {item.url && <a href={item.url} target="_blank" rel="noopener noreferrer">Read more</a>}
-              <p><small>{new Date(item.createdDate).toLocaleDateString()}</small></p>
+            <li key={item.id} className="news-list__item">
+              <h2 className="news-list__item-title">{item.title}</h2>
+              <p className="news-list__item-description">{item.description}</p>
+              {item.url && (
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="news-list__item-link"
+                >
+                  Read more
+                </a>
+              )}
+              <p className="news-list__item-date">
+                <small>{new Date(item.createdDate).toLocaleDateString()}</small>
+              </p>
             </li>
           ))}
         </ul>
       ) : (
-        <p>No news available.</p>
+        <p className="news-list__no-news">No news available.</p>
       )}
     </div>
   );
