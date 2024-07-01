@@ -2,7 +2,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "fire
 import { IUser } from "../interfaces/IUser";
 import { auth } from "../firebaseConfig";
 
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+const BASE_URL = `https://q11.jvmhost.net/`
 
 export const signIn = async (email: string, password: string): Promise<IUser> => {
     try {
