@@ -75,10 +75,10 @@ export async function loadCartById(userId: string) {
         redirect: 'follow',
       });
       const data = await result.json();
-      console.log(`Data fetched for tire id ${userId}:`, data);
+      console.log(`Data fetched for  id ${userId}:`, data);
       return data;
     } catch (error) {
-      console.error(`Error fetching tire id ${userId}:`, error);
+      console.error(`Error fetching  id ${userId}:`, error);
       throw error;
     }
   }

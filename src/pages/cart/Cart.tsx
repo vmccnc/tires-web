@@ -1,40 +1,122 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Item, IUserCart } from '../../interfaces/IUser';
-import { AuthContext } from '../../context/AuthContext';
 import './Cart.css';
-import { loadCartById } from '../../dbRequests/userRequests';
 
 interface CartItem extends Item {
     isAvailable: boolean;
 }
 
 const Cart: React.FC = () => {
-    const { user, isAuthenticated } = useContext(AuthContext);
     const [cart, setCart] = useState<IUserCart | null>(null);
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
     const [discount] = useState<number>(0.05);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
-        const fetchCartItems = async () => {
-            if (isAuthenticated && user) {
-                try {
-                    const data: IUserCart = await loadCartById(user.uid);
-                    setCart(data);
-                } catch (error) {
-                    setError("Failed to load cart items.");
-                } finally {
-                    setLoading(false);
-                }
-            } else {
-                setError("User is not authenticated.");
-                setLoading(false);
+    const exampleCart: IUserCart = {
+        cartId: 1,
+        items: [
+            {
+                productId: 1,
+                productName: 'Tire A',
+                productUrl: 'https://example.com/tire-a',
+                quantity: 2,
+                productPrice: 100,
+                sumPrice: 200,
+                link: {
+                    href: 'https://example.com/tire-a',
+                    hreflang: 'en',
+                    title: 'Tire A',
+                    type: 'product',
+                    deprecation: null,
+                    profile: null,
+                    name: 'Tire A',
+                    templated: false,
+                },
+            },
+            {
+                productId: 2,
+                productName: 'Tire B',
+                productUrl: 'https://example.com/tire-b',
+                quantity: 1,
+                productPrice: 150,
+                sumPrice: 150,
+                link: {
+                    href: 'https://example.com/tire-b',
+                    hreflang: 'en',
+                    title: 'Tire B',
+                    type: 'product',
+                    deprecation: null,
+                    profile: null,
+                    name: 'Tire B',
+                    templated: false,
+                },
+            },
+            {
+                productId: 3,
+                productName: 'Tire C',
+                productUrl: 'https://example.com/tire-c',
+                quantity: 3,
+                productPrice: 90,
+                sumPrice: 270,
+                link: {
+                    href: 'https://example.com/tire-c',
+                    hreflang: 'en',
+                    title: 'Tire C',
+                    type: 'product',
+                    deprecation: null,
+                    profile: null,
+                    name: 'Tire C',
+                    templated: false,
+                },
+            },
+            {
+                productId: 4,
+                productName: 'Tire D',
+                productUrl: 'https://example.com/tire-d',
+                quantity: 4,
+                productPrice: 110,
+                sumPrice: 440,
+                link: {
+                    href: 'https://example.com/tire-d',
+                    hreflang: 'en',
+                    title: 'Tire D',
+                    type: 'product',
+                    deprecation: null,
+                    profile: null,
+                    name: 'Tire D',
+                    templated: false,
+                },
+            },
+            {
+                productId: 5,
+                productName: 'Tire E',
+                productUrl: 'https://example.com/tire-e',
+                quantity: 1,
+                productPrice: 200,
+                sumPrice: 200,
+                link: {
+                    href: 'https://example.com/tire-e',
+                    hreflang: 'en',
+                    title: 'Tire E',
+                    type: 'product',
+                    deprecation: null,
+                    profile: null,
+                    name: 'Tire E',
+                    templated: false,
+                },
             }
-        };
+        ],
+        totalPrice: 1260,
+    };
 
-        fetchCartItems();
-    }, [isAuthenticated, user]);
+    useEffect(() => {
+        // Simulate data fetching by using exampleCart
+        setTimeout(() => {
+            setCart(exampleCart);
+            setLoading(false);
+        }, 1000);
+    }, []);
 
     useEffect(() => {
         if (cart && cart.items.length > 0) {
